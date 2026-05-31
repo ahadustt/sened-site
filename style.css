@@ -18,10 +18,24 @@ html, body {
   background: linear-gradient(180deg, var(--bg-top), var(--bg-bottom));
   color: var(--ink);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, sans-serif;
+               "Helvetica Neue", "Noto Sans Ethiopic", Arial, sans-serif;
   font-size: 16px;
   line-height: 1.55;
   min-height: 100vh;
+}
+
+/* Ethiopic web font for cross-platform Amharic rendering. */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Ethiopic:wght@400;700&family=Noto+Serif+Ethiopic:wght@700&display=swap');
+
+html[lang="am"] body {
+  font-family: "Noto Sans Ethiopic", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+html[lang="am"] h1,
+html[lang="am"] h2,
+html[lang="am"] h3,
+html[lang="am"] .brand {
+  font-family: "Noto Serif Ethiopic", Georgia, "Times New Roman", serif;
 }
 
 a { color: var(--accent-deep); text-decoration: underline; }
@@ -53,6 +67,21 @@ header nav a {
   text-decoration: none;
 }
 header nav a:hover { color: var(--ink); }
+
+.lang {
+  margin-left: 22px;
+  padding-left: 22px;
+  border-left: 1px solid var(--hairline);
+}
+.lang a {
+  margin-left: 0;
+  font-size: 13px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Noto Sans Ethiopic", sans-serif;
+}
+.lang a + a { margin-left: 0; }
+.lang a.lang-active { color: var(--ink); font-weight: 600; }
+.lang-sep { margin: 0 8px; color: var(--muted); opacity: 0.45; }
 
 main {
   max-width: var(--max);
